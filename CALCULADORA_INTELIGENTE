@@ -1,0 +1,49 @@
+# Função que implementa a calculadora inteligente
+def calculadora_inteligente():
+    # Loop principal para permitir que o usuário realize várias operações consecutivas
+    while True:
+        # Solicita os números de entrada ao usuário e converte para float
+        try:
+            num1 = float(input("Digite o primeiro número: "))
+            num2 = float(input("Digite o segundo número: "))
+        except ValueError:
+            print("Entrada inválida. Digite apenas números.")
+            continue  # Reinicia o loop em caso de erro na conversão
+
+        # Exibe o menu de operações disponíveis
+        print("\nEscolha a operação desejada:")
+        print("1 - Adição (+)")
+        print("2 - Subtração (-)")
+        print("3 - Multiplicação (*)")
+        print("4 - Divisão (/)")
+
+        # Recebe a escolha do usuário
+        opcao = input("Digite o número da operação: ")
+
+        # Verifica a opção e realiza a operação correspondente
+        if opcao == "1":
+            resultado = num1 + num2
+            print(f"\nResultado: {num1} + {num2} = {resultado}")
+        elif opcao == "2":
+            resultado = num1 - num2
+            print(f"\nResultado: {num1} - {num2} = {resultado}")
+        elif opcao == "3":
+            resultado = num1 * num2
+            print(f"\nResultado: {num1} * {num2} = {resultado}")
+        elif opcao == "4":
+            if num2 == 0:
+                print("\nErro: Divisão por zero não é permitida.")
+            else:
+                resultado = num1 / num2
+                print(f"\nResultado: {num1} / {num2} = {resultado}")
+        else:
+            print("\nOperação inválida. Escolha uma operação válida.")
+
+        # Permite que o usuário decida se deseja realizar outra operação
+        continuar = input("\nDeseja realizar outra operação? (s/n): ").strip().lower()
+        if continuar != "s":
+            print("Calculadora encerrada.")
+            break
+
+# Chamada da função para executar a calculadora
+calculadora_inteligente()
